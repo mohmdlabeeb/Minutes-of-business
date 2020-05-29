@@ -77,7 +77,7 @@ app.get('/remove/:topic', function (req, res) {
   postArray.forEach(function (element) {
 
     const urlTopic = req.params.topic;
-    const titleTopic = element.title;
+    const titleTopic = element.Topic;
     const titlebody = element.postBody;
 
     const urlTopicLowered = _.lowerCase(urlTopic);
