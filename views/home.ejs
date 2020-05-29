@@ -2,10 +2,22 @@
 <h1>Home</h1>
 <p><%= content %></p>
 
+<% if (option=== 1) { %>
+<h2 class="rm">BE CAREFUL, THIS PROCESS CANNOT BE UNDONE</h2>    
 <% post.forEach(function (element){ %>
 <h1><%= element.title %> </h1>
-<p><%= element.postBody.substring(0,100) + "..."%><a href="/posts/<%= element.title %> ">Read more</a></p>
+<p><%= element.postBody.substring(0,100) + "..."%><a href="/posts/<%= element.title %> ">Read more</a></a></p>
+<a class="rm" href="/remove/<%= element.title %>">Remove</a>
+<% });%>
+
+<%} else { %>
+<% post.forEach(function (element){ %>
+<h1><%= element.title %> </h1>
+<p><%= element.postBody.substring(0,100) + "..."%><a href="/posts/<%= element.title %> ">Read more</a></a></p>
 
 <% });%>
+<% } %>
+
+
 
 <%- include("partials/footer") -%>
