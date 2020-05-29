@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
+const favicon = require("serve-favicon");
 
 const homeStartingContent = "This is an application to note down minutes of business in an easy way and to keep it organised. Please don't share this link as this is private.";
 const removePage = "BE CAREFUL, THIS PROCESS CANNOT BE UNDONE"
@@ -13,6 +14,8 @@ let postArray = [];
 
 
 app.set('view engine', 'ejs');
+
+app.use(favicon(__dirname + '/public/icons/favicon.ico')); 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -39,7 +42,8 @@ app.post('/compose', function (req, res) {
     Decision: req.body.Decision,
     nweek: req.body.nweek,
     meet: req.body.meet,
-    post: req.body.post
+    post: req.body.post,
+    time: req.body.time
 
   };
   postArray.push(post);
@@ -58,12 +62,13 @@ app.get('/posts/:topic', function (req, res) {
     const nweek = element.nweek;
     const meet = element.meet;
     const post = element.post;
+    const time = element.time;
 
     const urlTopicLowered = _.lowerCase(urlTopic);
     const titleTopicLowered = _.lowerCase(titleTopic);
 
     if (urlTopicLowered == titleTopicLowered) {
-      res.render("post.ejs", { date: titledate, topic:topic, attendees: attendees, decision: decision, nweek: nweek, meet: meet, post: post });
+      res.render("post.ejs", { date: titledate, time: time,topic:topic, attendees: attendees, decision: decision, nweek: nweek, meet: meet, post: post });
     }
     else {
       console.log("not found");
