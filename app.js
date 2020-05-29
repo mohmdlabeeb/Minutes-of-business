@@ -5,8 +5,8 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 
-const homeStartingContent = "This is an application to note down minutes of business in any an easy way and to keep it organised. Please don't share this link as this is private.";
-
+const homeStartingContent = "This is an application to note down minutes of business in an easy way and to keep it organised. Please don't share this link as this is private.";
+const removePage = "BE CAREFUL, THIS PROCESS CANNOT BE UNDONE"
 const app = express();
 
 let postArray = [];
@@ -18,11 +18,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get('/', function (req, res) {
-  res.render("home", { content: homeStartingContent, post: postArray, option: 0 });
+  res.render("home", { content: homeStartingContent, head:"Home",post: postArray, option: 0 });
 });
 
 app.get('/rm', function (req, res) {
-  res.render("home", { content: homeStartingContent, post: postArray, option: 1 });
+  res.render("home", { content: removePage, head:"Remove",post: postArray, option: 1 });
 })
 
 app.get('/compose', function (req, res) {

@@ -1,9 +1,8 @@
 <%- include("partials/header") -%>
-<h1>Home</h1>
+<h1><%= head %></h1>
 <p><%= content %></p>
 
-<% if (option=== 1) { %>
-<h2 class="rm">BE CAREFUL, THIS PROCESS CANNOT BE UNDONE</h2>    
+<% if (option=== 1) { %>  
 <% post.forEach(function (element){ %>
 <h1><%= element.date %> </h1>
 <p><%= element.topic %></p>

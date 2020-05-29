@@ -49,3 +49,7 @@ body {
 .rm {
   color:red;
 }
+
+.marg {
+  margin-bottom: 2rem;
+}
