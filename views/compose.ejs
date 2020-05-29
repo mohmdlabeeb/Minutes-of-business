@@ -3,9 +3,19 @@
 
 <form action="/compose" method="post">
     <div class="form-group">
-        <label for="Title">Title</label>
-        <input type="text" name="title" class="form-control" id="Title">
-        <label for="Post">Post</label>
+        <label>Date</label>
+        <input type="text" name="Date" class="form-control" id="Date">
+        <label>Topic</label>
+        <input type="text" name="Topic" class="form-control" id="Topic">
+        <label>Attendees</label>
+        <input type="text" name="Attendees" class="form-control" id="Attendees" placeholder="use , to seperate names">
+        <label>Decision's made</label>
+        <input type="text" name="Decision" class="form-control" id="Decision">
+        <label>Task for next week</label>
+        <input type="text" name="nweek" class="form-control" id="nweek">
+        <label>Next meeting</label>
+        <input type="text" name="meet" class="form-control" id="meet">
+        <label>Extra notes:</label>
         <textarea class="form-control" name= "post" id="Post" rows="5"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Publish</button>

@@ -5,16 +5,15 @@
 <% if (option=== 1) { %>
 <h2 class="rm">BE CAREFUL, THIS PROCESS CANNOT BE UNDONE</h2>    
 <% post.forEach(function (element){ %>
-<h1><%= element.title %> </h1>
-<p><%= element.postBody.substring(0,100) + "..."%><a href="/posts/<%= element.title %> ">Read more</a></a></p>
-<a class="rm" href="/remove/<%= element.title %>">Remove</a>
+<h1><%= element.date %> </h1>
+<p><%= element.topic %></p>
+<a class="rm" href="/remove/<%= element.Topic %>">Remove</a>
 <% });%>
 
 <%} else { %>
 <% post.forEach(function (element){ %>
-<h1><%= element.title %> </h1>
-<p><%= element.postBody.substring(0,100) + "..."%><a href="/posts/<%= element.title %> ">Read more</a></a></p>
-
+<h1><%= element.date %> </h1>
+<p><%= element.Topic %>  <a href="/posts/<%= element.Topic %>">open</a></p>
 <% });%>
 <% } %>
 
